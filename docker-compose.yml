@@ -1,0 +1,65 @@
+version: '3.8'
+
+networks:
+  telsysteem:
+    ipam:
+      config:
+        - subnet: 172.19.0.0/24
+
+services:
+  ronny01:
+    build:
+      context: .
+      dockerfile: Dockerfile.Ronny
+    networks:
+      telsysteem:
+        ipv4_address: 172.19.0.9
+  ronny02:
+    build:
+      context: .
+      dockerfile: Dockerfile.Ronny
+    networks:
+      telsysteem:
+        ipv4_address: 172.19.0.2
+  ronny03:
+    build:
+      context: .
+      dockerfile: Dockerfile.Ronny
+    networks:
+      telsysteem:
+        ipv4_address: 172.19.0.3
+  ronny04:
+    build:
+      context: .
+      dockerfile: Dockerfile.Ronny
+    networks:
+      telsysteem:
+        ipv4_address: 172.19.0.4
+  ronny05:
+    build:
+      context: .
+      dockerfile: Dockerfile.Ronny
+    networks:
+      telsysteem:
+        ipv4_address: 172.19.0.5
+  ronny06:
+    build:
+      context: .
+      dockerfile: Dockerfile.Ronny
+    networks:
+      telsysteem:
+        ipv4_address: 172.19.0.6
+  telraam: # TODO Do a real telraam here
+    build:
+      context: .
+      dockerfile: Dockerfile.Ronny
+    networks:
+      telsysteem:
+        ipv4_address: 172.19.0.10
+  manualcount: # TODO Do a real manualcount here
+    build:
+      context: .
+      dockerfile: Dockerfile.Ronny
+    networks:
+      telsysteem:
+        ipv4_address: 172.19.0.11

@@ -1,0 +1,13 @@
+FROM debian:latest
+
+RUN apt-get update
+RUN apt-get install -yqq --no-install-recommends git python3-pip
+
+WORKDIR /
+RUN git clone https://github.com/12urenloop/Ronny-the-station-chef.git
+
+WORKDIR /Ronny-the-station-chef
+
+RUN pip install -r requirements.txt
+
+ENTRYPOINT ["uvicorn","station:app","--host","0.0.0.0","--reload"]
