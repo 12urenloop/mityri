@@ -5,6 +5,6 @@
 
 ## Roadmap
 
-- Send packets to the actual station configured in the docker network.
+- Send packets to the actual station configured in the docker network. Decide wheter to directly insert in the database or add a debug web endpoint.
 - Configure playback speed. Atm it is in real-time.
 - Add reliability option. Be able to make a station unreliable and occasionally drop packets.
