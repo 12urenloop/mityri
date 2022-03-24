@@ -1,3 +1,10 @@
 # Mock it till you Rock it
 
 `docker-compose up` to spin up virtual stations in a docker network.
+
+
+## Roadmap
+
+- Send packets to the actual station configured in the docker network.
+- Configure playback speed. Atm it is in real-time.
+- Add reliability option. Be able to make a station unreliable and occasionally drop packets.
