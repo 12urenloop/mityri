@@ -1,0 +1,3 @@
+POSTGRES_DB=ronny
+POSTGRES_USER=ronny
+POSTGRES_PASSWORD=ronnydbpassword

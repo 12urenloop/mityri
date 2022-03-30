@@ -5,8 +5,10 @@ networks:
     ipam:
       config:
         - subnet: 172.19.0.0/24
+  db:
 
 services:
+  # RONNY 01
   ronny01:
     build:
       context: .
@@ -14,6 +16,20 @@ services:
     networks:
       telsysteem:
         ipv4_address: 172.19.0.9
+      db:
+    env_file:
+      - env-ronny
+    environment:
+      DATABASE_HOST: ronny01-db
+  ronny01-db:
+    image: postgres:13
+    restart: unless-stopped
+    networks:
+      - db
+    env_file:
+      - env-db
+
+  # RONNY 02
   ronny02:
     build:
       context: .
@@ -21,6 +37,20 @@ services:
     networks:
       telsysteem:
         ipv4_address: 172.19.0.2
+      db:
+    env_file:
+      - env-ronny
+    environment:
+      DATABASE_HOST: ronny02-db
+  ronny02-db:
+    image: postgres:13
+    restart: unless-stopped
+    networks:
+      - db
+    env_file:
+      - env-db
+
+  # RONNY 03
   ronny03:
     build:
       context: .
@@ -28,6 +58,20 @@ services:
     networks:
       telsysteem:
         ipv4_address: 172.19.0.3
+      db:
+    env_file:
+      - env-ronny
+    environment:
+      DATABASE_HOST: ronny03-db
+  ronny03-db:
+    image: postgres:13
+    restart: unless-stopped
+    networks:
+      - db
+    env_file:
+      - env-db
+
+  # RONNY 04
   ronny04:
     build:
       context: .
@@ -35,6 +79,20 @@ services:
     networks:
       telsysteem:
         ipv4_address: 172.19.0.4
+      db:
+    env_file:
+      - env-ronny
+    environment:
+      DATABASE_HOST: ronny04-db
+  ronny04-db:
+    image: postgres:13
+    restart: unless-stopped
+    networks:
+      - db
+    env_file:
+      - env-db
+
+  # RONNY 05
   ronny05:
     build:
       context: .
@@ -42,6 +100,20 @@ services:
     networks:
       telsysteem:
         ipv4_address: 172.19.0.5
+      db:
+    env_file:
+      - env-ronny
+    environment:
+      DATABASE_HOST: ronny05-db
+  ronny05-db:
+    image: postgres:13
+    restart: unless-stopped
+    networks:
+      - db
+    env_file:
+      - env-db
+
+  # RONNY 06
   ronny06:
     build:
       context: .
@@ -49,17 +121,30 @@ services:
     networks:
       telsysteem:
         ipv4_address: 172.19.0.6
-  telraam: # TODO Do a real telraam here
-    build:
-      context: .
-      dockerfile: Dockerfile.Ronny
+      db:
+    env_file:
+      - env-ronny
+    environment:
+      DATABASE_HOST: ronny06-db
+  ronny06-db:
+    image: postgres:13
+    restart: unless-stopped
     networks:
-      telsysteem:
-        ipv4_address: 172.19.0.10
-  manualcount: # TODO Do a real manualcount here
-    build:
-      context: .
-      dockerfile: Dockerfile.Ronny
-    networks:
-      telsysteem:
-        ipv4_address: 172.19.0.11
+      - db
+    env_file:
+      - env-db
+  
+  #telraam: # TODO Do a real telraam here
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile.Ronny
+  #  networks:
+  #    telsysteem:
+  #      ipv4_address: 172.19.0.10
+  #manualcount: # TODO Do a real manualcount here
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile.Ronny
+  #  networks:
+  #    telsysteem:
+  #      ipv4_address: 172.19.0.11

@@ -2,6 +2,11 @@
 
 `docker-compose up` to spin up virtual stations in a docker network.
 
+## Mocking
+
+- Configure the ronny's in the src/config.py file
+- Bind the postgres ports to your local machine so you can insert into the database: `ssh -L 5432:localhost:6001 172.12.50.101`
+
 
 ## Roadmap
 

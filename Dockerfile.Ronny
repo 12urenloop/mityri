@@ -4,7 +4,7 @@ RUN apt-get update
 RUN apt-get install -yqq --no-install-recommends git python3-pip
 
 WORKDIR /
-RUN git clone https://github.com/12urenloop/Ronny-the-station-chef.git
+RUN git clone --branch main https://github.com/12urenloop/Ronny-the-station-chef.git
 
 WORKDIR /Ronny-the-station-chef
 
