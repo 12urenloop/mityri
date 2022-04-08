@@ -19,13 +19,17 @@ services:
       db:
     env_file:
       - env-ronny
+    depends_on:
+      - "ronny01-db"
     environment:
       DATABASE_HOST: ronny01-db
   ronny01-db:
     image: postgres:13
     restart: unless-stopped
     networks:
-      - db
+      db:
+    ports:
+      - 6001:5432
     env_file:
       - env-db
 
@@ -40,6 +44,8 @@ services:
       db:
     env_file:
       - env-ronny
+    depends_on:
+      - "ronny02-db"
     environment:
       DATABASE_HOST: ronny02-db
   ronny02-db:
@@ -47,6 +53,8 @@ services:
     restart: unless-stopped
     networks:
       - db
+    ports:
+      - 6002:5432
     env_file:
       - env-db
 
@@ -61,6 +69,8 @@ services:
       db:
     env_file:
       - env-ronny
+    depends_on:
+      - "ronny03-db"
     environment:
       DATABASE_HOST: ronny03-db
   ronny03-db:
@@ -68,6 +78,8 @@ services:
     restart: unless-stopped
     networks:
       - db
+    ports:
+      - 6003:5432
     env_file:
       - env-db
 
@@ -82,6 +94,8 @@ services:
       db:
     env_file:
       - env-ronny
+    depends_on:
+      - "ronny04-db"
     environment:
       DATABASE_HOST: ronny04-db
   ronny04-db:
@@ -89,6 +103,8 @@ services:
     restart: unless-stopped
     networks:
       - db
+    ports:
+      - 6004:5432
     env_file:
       - env-db
 
@@ -103,13 +119,17 @@ services:
       db:
     env_file:
       - env-ronny
+    depends_on:
+      - "ronny05-db"
     environment:
       DATABASE_HOST: ronny05-db
   ronny05-db:
     image: postgres:13
     restart: unless-stopped
     networks:
-      - db
+      db:
+    ports:
+      - 6005:5432
     env_file:
       - env-db
 
@@ -124,13 +144,42 @@ services:
       db:
     env_file:
       - env-ronny
+    depends_on:
+      - "ronny06-db"
     environment:
       DATABASE_HOST: ronny06-db
   ronny06-db:
     image: postgres:13
     restart: unless-stopped
     networks:
-      - db
+      db:
+    ports:
+      - 6006:5432
+    env_file:
+      - env-db
+
+  # RONNY 07
+  ronny07:
+    build:
+      context: .
+      dockerfile: Dockerfile.Ronny
+    networks:
+      telsysteem:
+        ipv4_address: 172.19.0.7
+      db:
+    env_file:
+      - env-ronny
+    depends_on:
+      - "ronny07-db"
+    environment:
+      DATABASE_HOST: ronny07-db
+  ronny07-db:
+    image: postgres:13
+    restart: unless-stopped
+    networks:
+      db:
+    ports:
+      - 6007:5432
     env_file:
       - env-db
   

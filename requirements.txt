@@ -1,3 +1,5 @@
 orjson
 pydantic
 psycopg2
+picotui
+kivy[base]
