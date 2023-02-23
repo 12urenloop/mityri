@@ -1,5 +1,12 @@
 # Mock it till you Rock it
 
+Use actual data from previous editions with a virtual station setup to do a realistic replay of the event.
+
+Very usefull to do a realistic integration test of the system using existing data.
+
+A similar but different project named [SIMSALABIM](https://github.com/12urenloop/SIMSALABIM) generates events to simulate specific or new situations.
+
+
 `docker-compose up` to spin up virtual stations in a docker network.
 
 ## Mocking
