@@ -1,3 +1,5 @@
+# NOTE: Superseded by [REPLAY](https://github.com/12urenloop/REPLAY)
+
 # Mock it till you Rock it
 
 Use actual data from previous editions with a virtual station setup to do a realistic replay of the event.
